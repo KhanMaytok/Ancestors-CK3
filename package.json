@@ -1,0 +1,31 @@
+{
+  "name": "rinnegan",
+  "version": "0.0.1",
+  "description": "Mod for Crusader Kings 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KhanMaytok/Ancestors-CK3.git"
+  },
+  "author": "Giancarlo Ventura",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KhanMaytok/Ancestors-CK3/issues"
+  },
+  "homepage": "https://github.com/KhanMaytok/Ancestors-CK3#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/register": "^7.11.5",
+    "copy-webpack-plugin": "^6.2.0",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-replace": "^1.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}

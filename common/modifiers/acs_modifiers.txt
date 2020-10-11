@@ -1,0 +1,9 @@
+﻿byakugan_promise = {
+	icon = letter_positive
+	attraction_opinion = 10
+}
+
+sharingan_promise = {
+	icon = letter_positive
+	attraction_opinion = 10
+}

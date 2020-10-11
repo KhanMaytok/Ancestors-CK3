@@ -1,0 +1,44 @@
+l_french:
+
+##############
+### TRAITS ###
+##############
+
+trait_byakugan:0 "Byakugan"
+trait_byakugan_desc:0 "The All Seeing White Eye."
+trait_byakugan_character_desc:0 "This person has the All Seeing White Eye."
+
+trait_sharingan:0 "Sharingan"
+trait_sharingan_desc:0 "The Mirror Wheel Eye."
+trait_sharingan_character_desc:0 "This person has the Mirror Wheel Eye"
+
+trait_syrena:0 "Helena"
+trait_syrena_desc:0 "The beauty and magnetism that this woman radiates are famous throughout the world."
+trait_syrena_character_desc:0 "More than a thousand bassels would be thrown into the sea competing for its beauty."
+
+trait_tenseigan:0 "Tenseigan"
+trait_tenseigan_desc:0 "The All Seeing White Eye."
+trait_tenseigan_character_desc:0 "This person has the All Seeing White Eye."
+
+trait_jogan:0 "Jogan"
+trait_jogan_desc:0 "The All Seeing White Eye."
+trait_jogan_character_desc:0 "This person has the All Seeing White Eye."
+
+trait_mangekyo_sharingan:0 "Mangekyo Sharingan"
+trait_mangekyo_sharingan_desc:0 "The Mirror Wheel Eye."
+trait_mangekyo_sharingan_character_desc:0 "This person has the Mirror Wheel Eye"
+
+trait_eternal_mangekyo_sharingan:0 "Eternal Mangekyo Sharingan"
+trait_eternal_mangekyo_sharingan_desc:0 "The Mirror Wheel Eye."
+trait_eternal_mangekyo_sharingan_character_desc:0 "This person has the Mirror Wheel Eye"
+
+trait_zeus:0 "Khalga"
+trait_zeus_desc:0 "Yes. He is Khalga. Look on his works, ye Mighty, and despair!"
+trait_zeus_character_desc:0 "Yes. He is Khalga. Look on his works, ye Mighty, and despair!"
+
+################
+### MODIFIER ###
+################
+
+sharingan_promise:0 "Promising Ancestry"
+byakugan_promise:0 "Promising Ancestry"

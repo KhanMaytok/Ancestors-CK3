@@ -1,0 +1,187 @@
+﻿syrena = {
+	index = 3000
+    intrigue = 10
+    fertility = 0.99
+    seduce_scheme_power_add = 100
+	attraction_opinion = 500
+
+	flag = can_not_marry
+	can_inherit = no
+
+	name = trait_syrena
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_syrena_desc
+			}
+			desc = trait_syrena_character_desc
+		}
+	}
+	icon = syrena.dds
+}
+
+sharingan = {
+	index = 3001
+	intrigue = 10
+	
+	name = trait_sharingan
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_sharingan_desc
+			}
+			desc = trait_sharingan_character_desc
+		}
+	}
+	icon = sharingan.dds
+	group = sharingan_group
+	level = 1
+}
+
+mangekyo_sharingan = {
+	index = 3002
+	intrigue = 10
+	monthly_intrigue_lifestyle_xp_gain_mult = 0.1
+    fertility = 0.99
+    seduce_scheme_power_add = 100
+	
+	name = trait_mangekyo_sharingan
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_mangekyo_sharingan_desc
+			}
+			desc = trait_mangekyo_sharingan_character_desc
+		}
+	}
+	icon = mangekyo_sharingan.dds
+	group = sharingan_group
+	level = 2
+}
+
+eternal_mangekyo_sharingan = {
+	index = 3003
+	intrigue = 10
+	monthly_intrigue_lifestyle_xp_gain_mult = 0.1
+    fertility = 0.99
+    seduce_scheme_power_add = 100
+	
+	name = trait_eternal_mangekyo_sharingan
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_eternal_mangekyo_sharingan_desc
+			}
+			desc = trait_eternal_mangekyo_sharingan_character_desc
+		}
+	}
+	icon = eternal_mangekyo_sharingan.dds
+	group = sharingan_group
+	level = 3
+}
+
+byakugan = {
+	index = 3004
+	intrigue = 10
+	
+	name = trait_byakugan
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_byakugan_desc
+			}
+			desc = trait_byakugan_character_desc
+		}
+	}
+	icon = byakugan.dds
+	group = byakugan_group
+	level = 1
+}
+
+tenseigan = {
+	index = 3005
+	intrigue = 10
+	monthly_intrigue_lifestyle_xp_gain_mult = 0.1
+    fertility = 0.99
+    seduce_scheme_power_add = 100
+	
+	name = trait_tenseigan
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_tenseigan_desc
+			}
+			desc = trait_tenseigan_character_desc
+		}
+	}
+	icon = tenseigan.dds
+	group = byakugan_group
+	level = 2
+}
+
+jogan = {
+	index = 3006
+	intrigue = 10
+	monthly_intrigue_lifestyle_xp_gain_mult = 0.1
+    fertility = 0.99
+    seduce_scheme_power_add = 100
+	
+	name = trait_jogan
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_jogan_desc
+			}
+			desc = trait_jogan_character_desc
+		}
+	}
+	icon = jogan.dds
+	group = byakugan_group
+	level = 3
+}
+
+zeus = {
+	index = 3007
+	intrigue = 10
+    fertility = 0.99
+    seduce_scheme_power_add = 100
+	attraction_opinion = 500
+
+	flag = can_not_marry
+	can_inherit = no
+	
+	name = trait_zeus
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_zeus_desc
+			}
+			desc = trait_zeus_character_desc
+		}
+	}
+	icon = zeus.dds
+}

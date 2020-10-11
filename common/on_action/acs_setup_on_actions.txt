@@ -1,0 +1,63 @@
+﻿yearly_global_pulse = {
+	on_actions = {
+		delay = { days = 28 }
+		ACS_events_yearly_global_pulse
+	}	
+}
+
+
+on_birth_child = {
+	on_actions = {		
+		ACS_events_on_birth_child
+	}
+}
+
+on_birthday = {
+	on_actions = {		
+		ACS_gain_dojutsu
+	}
+}
+
+on_pregnancy_mother = {
+	on_actions = {		
+		ACS_on_pregnancy_mother
+	}
+}
+
+
+ACS_events_yearly_global_pulse = {
+	trigger = {
+		NOT = { has_global_variable = ancestors_startup }
+	}
+	events = {
+		ACS.0001 #"Develops" the character and gives those without location a location
+	}
+}
+
+ACS_events_on_birth_child = {
+	events = {
+		ACS.0003
+	}
+}
+
+ACS_gain_dojutsu = {
+	trigger = {
+		age = 16
+		OR = {
+			has_character_modifier = sharingan_promise
+			has_character_modifier = byakugan_promise
+		}
+	}
+	events = {
+		ACS.0004
+	}
+}
+
+ACS_on_pregnancy_mother = {
+	trigger = {
+		has_trait = syrena
+	}
+	events = {
+		ACS.0005 # Khalga comes
+	}
+}
