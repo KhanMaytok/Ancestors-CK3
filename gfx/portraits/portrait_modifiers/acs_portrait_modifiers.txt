@@ -1,0 +1,25 @@
+﻿visual_traits_syrena = {
+	syrena = {
+		dna_modifiers = {
+			color = {
+				gene = eye_color
+				# template = hair_color
+				#mode = add			#not supported for color genes
+				#mode = replace		#overwrite this gene with palette coordinates specified here
+				#mode = modify		#adds x and y to the dna-gene's values
+				mode = modify
+					
+				x = -1.0
+				y = 0.0
+			}
+		}
+
+		weight = {
+			base = 0
+			modifier = {
+				add = 100
+				has_trait = syrena
+			}
+		}
+	}
+}

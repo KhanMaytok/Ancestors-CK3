@@ -4,17 +4,14 @@ l_simp_chinese:
 ### TRAITS ###
 ##############
 
+trait_syrena:0 "Helena"
+trait_syrena_desc:0 "The beauty and magnetism that this woman radiates are famous throughout the world."
+
 trait_byakugan:0 "Byakugan"
 trait_byakugan_desc:0 "The All Seeing White Eye."
-trait_byakugan_character_desc:0 "This person has the All Seeing White Eye."
 
 trait_sharingan:0 "Sharingan"
 trait_sharingan_desc:0 "The Mirror Wheel Eye."
-trait_sharingan_character_desc:0 "This person has the Mirror Wheel Eye"
-
-trait_syrena:0 "Helena"
-trait_syrena_desc:0 "The beauty and magnetism that this woman radiates are famous throughout the world."
-trait_syrena_character_desc:0 "More than a thousand bassels would be thrown into the sea competing for its beauty."
 
 trait_tenseigan:0 "Tenseigan"
 trait_tenseigan_desc:0 "The All Seeing White Eye."
@@ -34,11 +31,18 @@ trait_eternal_mangekyo_sharingan_character_desc:0 "This person has the Mirror Wh
 
 trait_zeus:0 "Khalga"
 trait_zeus_desc:0 "Yes. He is Khalga. Look on his works, ye Mighty, and despair!"
-trait_zeus_character_desc:0 "Yes. He is Khalga. Look on his works, ye Mighty, and despair!"
 
-################
-### MODIFIER ###
-################
+trait_zeus_blood:0 "Blood of the Traveler"
+trait_zeus_blood_desc:0 "This character is descended from the mysterious traveler."
+
+trait_vee_blood:0 "Blood of Vee"
+trait_vee_blood_desc:0 "This character is descended from one of Vee's incarnations."
+
+
+
+#################
+### MODIFIERS ###
+#################
 
 sharingan_promise:0 "Promising Ancestry"
 byakugan_promise:0 "Promising Ancestry"

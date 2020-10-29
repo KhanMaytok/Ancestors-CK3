@@ -1,6 +1,6 @@
 {
   "name": "rinnegan",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Mod for Crusader Kings 3",
   "main": "index.js",
   "scripts": {

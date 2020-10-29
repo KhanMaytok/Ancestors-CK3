@@ -5,16 +5,16 @@
 	}	
 }
 
-
 on_birth_child = {
 	on_actions = {		
-		ACS_events_on_birth_child
+		# ACS_events_on_birth_child
 	}
 }
 
 on_birthday = {
 	on_actions = {		
 		ACS_gain_dojutsu
+		ACS_kill_vee
 	}
 }
 
@@ -24,32 +24,34 @@ on_pregnancy_mother = {
 	}
 }
 
-
-ACS_events_yearly_global_pulse = {
-	trigger = {
-		NOT = { has_global_variable = ancestors_startup }
-	}
-	events = {
-		ACS.0001 #"Develops" the character and gives those without location a location
+on_death = {
+	on_actions = {		
+		ACS_on_death
 	}
 }
 
-ACS_events_on_birth_child = {
+ACS_events_yearly_global_pulse = {
 	events = {
-		ACS.0003
+		ACS.0001 # Select a random ruler. only AI. (Vee host)
 	}
 }
 
 ACS_gain_dojutsu = {
 	trigger = {
-		age = 16
-		OR = {
-			has_character_modifier = sharingan_promise
-			has_character_modifier = byakugan_promise
-		}
+		age = 16		
 	}
 	events = {
-		ACS.0004
+		ACS.0003
+	}
+}
+
+ACS_kill_vee = {
+	trigger = {
+		age = 53
+		has_trait = syrena
+	}
+	events = {
+		ACS.0007
 	}
 }
 
@@ -58,6 +60,15 @@ ACS_on_pregnancy_mother = {
 		has_trait = syrena
 	}
 	events = {
-		ACS.0005 # Khalga comes
+		ACS.0004 # Khalga comes
+	}
+}
+
+ACS_on_death = {
+	trigger = {
+		has_trait = syrena
+	}
+	events = {
+		ACS.0009
 	}
 }

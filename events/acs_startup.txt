@@ -1,9 +1,13 @@
 ﻿namespace = ACS
 
-# Vee spawns in a random ruler around the world. No players this time
+# Select a random ruler. only AI.
 ACS.0001 = {
 	type = empty
 	hidden = yes
+
+	trigger = {
+		NOT = { has_global_variable = ancestors_startup }
+	}
 
 	immediate = {
 		set_global_variable = {
@@ -17,16 +21,18 @@ ACS.0001 = {
 	}
 }
 
+# Spawn Vee at selected ruler
 ACS.0002 = {
 	type = empty
 	hidden = yes
 
 	immediate = {
+		debug_log = "First Vee"
 		root = {	
 			create_character = {
 				location = root.capital_province
 				name = "Vee"
-				age = 0
+				age = 0	
 				culture = root.culture
 				faith = root.faith
 				dynasty = none
@@ -46,18 +52,14 @@ ACS.0002 = {
 				trait = reincarnation
 				trait = wild_oat
 				trait = syrena
+				trait = vee_blood
 			}
 			add_courtier = scope:vee
-			scope:vee = {
-				add_character_modifier = {
-					modifier = sharingan_promise
-				}
-			}
 		}
 	}
 }
 
-# On birth, mark a character until adulthood
+# Sharingan or byakugan on adulthood
 ACS.0003 = {
 	type = empty
 	hidden = yes
@@ -66,149 +68,48 @@ ACS.0003 = {
 		# Evaluates sharingan
 		if = {
 			limit = {			
-				OR = {
-					mother = {
-						has_character_modifier = sharingan_promise
-					}
-					real_father = {
-						has_character_modifier = sharingan_promise
-					}
-				}
+				has_trait = vee_blood
 			}
-			add_character_modifier = {
-				modifier = sharingan_promise
+			random_list = {
+				93 = {}
+				7 = {
+					add_trait = sharingan
+				}
 			}
 		}
 		# Evaluates byakugan
 		if = {
 			limit = {			
-				OR = {
-					mother = {
-						has_character_modifier = byakugan_promise
-					}
-					real_father = {
-						has_character_modifier = byakugan_promise
-					}
+				has_trait = zeus_blood
+			}
+			random_list = {
+				93 = {}
+				7 = {
+					add_trait = byakugan
 				}
 			}
-			add_character_modifier = {
-				modifier = byakugan_promise
+		}
+		# Incompatible two traits
+		if = {
+			limit = {			
+				has_trait = sharingan
+				has_trait = byakugan
 			}
+			add_trait = possessed_1
+			add_trait = hunchbacked
+			add_trait = infertile
+			add_trait = bleeder
+			add_trait = physique_bad_1
+			add_trait = disfigured
+			add_trait = intellect_good_3
+			add_trait = blind
+			add_trait = impotent
 		}
 	}
 }
 
-# Decide byakugan or sharingan inheritance
+# Khalga is coming. Select suitable ruler
 ACS.0004 = {
-	type = empty
-	hidden = yes
-
-	immediate = {
-			# Incompatible dojutsu types
-			if = {
-				limit = {
-					OR = {
-						AND = {
-							mother = {
-								has_character_modifier = sharingan_promise
-							}
-							real_father = {
-								has_character_modifier = byakugan_promise
-							}
-						}
-						AND = {
-							real_father = {
-								has_character_modifier = sharingan_promise
-							}
-							mother = {
-								has_character_modifier = byakugan_promise
-							}
-						}
-					}				
-				}
-				add_trait = possessed_1
-				add_trait = hunchbacked
-				add_trait = infertile
-				add_trait = bleeder
-				add_trait = physique_bad_1
-				add_trait = disfigured
-				add_trait = intellect_good_3
-				add_trait = blind
-				add_trait = impotent
-			}
-			# Checking mother sharingan
-			if = {
-				limit = {
-					mother = {
-						has_character_modifier = sharingan_promise
-					}
-				}
-				add_character_modifier = {
-					modifier = sharingan_promise
-				}
-				random_list = {
-					3 = {
-						add_trait = sharingan
-					}
-					97 = {}
-				}
-			}
-			# Checking real_father sharingan
-			if = {
-				limit = {
-					real_father = {
-						has_character_modifier = sharingan_promise
-					}
-				}
-				add_character_modifier = {
-					modifier = sharingan_promise
-				}
-				random_list = {
-					3 = {
-						add_trait = sharingan
-					}
-					97 = {}
-				}
-			}
-			# Checking real_father byakugan
-			if = {
-				limit = {
-					real_father = {
-						has_character_modifier = byakugan_promise
-					}
-				}
-				add_character_modifier = {
-					modifier = byakugan_promise
-				}
-				random_list = {
-					3 = {
-						add_trait = byakugan
-					}
-					97 = {}
-				}
-			}
-			# Checking mother byakugan
-			if = {
-				limit = {
-					mother = {
-						has_character_modifier = byakugan_promise
-					}
-				}
-				add_character_modifier = {
-					modifier = byakugan_promise
-				}
-				random_list = {
-					3 = {
-						add_trait = byakugan
-					}
-					97 = {}
-				}
-			}
-	}
-}
-
-# Khalga is coming
-ACS.0005 = {
 	type = empty
 	hidden = yes
 
@@ -222,12 +123,13 @@ ACS.0005 = {
 				}
 				is_female = no
 			}
-			trigger_event = ACS.0006
+			trigger_event = ACS.0005
 		}
 	}
 }
 
-ACS.0006 = {
+# Select ruler spouse
+ACS.0005 = {
 	type = empty
 	hidden = yes
 
@@ -262,6 +164,7 @@ ACS.0006 = {
 			trait = reincarnation
 			trait = wild_oat
 			trait = zeus
+			trait = zeus_blood
 		}
 		scope:khalga_target = {
 			make_pregnant = {
@@ -271,19 +174,16 @@ ACS.0006 = {
 		}
 		# Khalga dies
 		scope:khalga = {
-			add_character_modifier = {
-				modifier = byakugan_promise
-			}
 			trigger_event = {
-				id = ACS.0007
-				months = 11
+				id = ACS.0006
+				days = { 180 200 }
 			}
 		}
 	}
 }
 
 # Khalga dies
-ACS.0007 = {
+ACS.0006 = {
 	type = empty
 	hidden = yes
 
@@ -291,6 +191,92 @@ ACS.0007 = {
 		debug_log = "killing khalga"
 		death = {
 			death_reason = death_hunting_accident
+		}
+	}
+}
+
+# Limit Vee to 53 +- years. Select a random event
+ACS.0007 = {
+	type = empty
+	hidden = yes
+
+	immediate = {
+		debug_log = "Vee has 53 years. Trigger degradation	"
+		trigger_event = {
+			id = ACS.0008
+			days = { 50 500 }
+		}
+	}
+}
+
+# Spawn cancer and immediate death
+ACS.0008 = {
+	type = empty
+	hidden = yes
+
+	immediate = {
+		debug_log = "Vee has cancer. Trigger death"
+		add_trait = cancer
+		death = {
+			death_reason = death_cancer
+		}
+	}
+}
+
+# Remove global variable if Vee is dead
+ACS.0009 = {
+	type = empty
+	hidden = yes
+
+	immediate = {
+		debug_log = "Vee is dead"	
+		random_ruler = {
+			limit = { is_ai = yes }
+			trigger_event = ACS.0010
+		}
+	}
+}
+
+
+# Spawn Vee at selected ruler
+ACS.0010 = {
+	type = empty
+	hidden = yes
+
+	immediate = {
+		debug_log = "First Vee"
+		root = {	
+			create_character = {
+				location = root.capital_province
+				name = "Vee"
+				age = 51
+				culture = root.culture
+				faith = root.faith
+				dynasty = none
+				gender = female
+				save_scope_as = vee
+
+				trait = brave
+				trait = sharingan
+				trait = lustful
+				trait = ambitious
+				trait = fecund
+				trait = beauty_good_3
+				trait = intellect_good_3
+				trait = physique_good_3
+				trait = mystic_3
+				trait = athletic
+				trait = reincarnation
+				trait = wild_oat
+				trait = syrena
+				trait = vee_blood
+			}
+			add_courtier = scope:vee
+			scope:vee = {
+				add_character_modifier = {
+					modifier = sharingan_promise
+				}
+			}
 		}
 	}
 }
