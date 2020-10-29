@@ -8,8 +8,9 @@ export const clean = () => del([
   'localization/french',
   'localization/german',
   'localization/korean',
-  'localization/simp_chinese'
-]);
+  'localization/simp_chinese',
+  '../build/**/*'
+],{force: true});
 
 function cloneLangs(){
   return gulp.src('localization/english/acs_traits_l_english.yml')
@@ -39,6 +40,11 @@ function cloneLangs(){
   .pipe(gulp.dest('localization/simp_chinese/'))
 }
 
-const build = gulp.series(clean, cloneLangs);
+function copyModFiles(){
+  return gulp.src(['common/**/*', 'events/**/*', 'gfx/**/*', 'localization/**/*', 'descriptor.mod', 'thumbnail.jpg'], {base: '.'})
+  .pipe(gulp.dest('../build/'))
+}
+
+const build = gulp.series(clean, cloneLangs, copyModFiles);
 
 exports.default = build
