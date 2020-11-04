@@ -5,6 +5,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- BOM in build process
+
+### Changed
+- Vee yearly pregnancy is a probability now
+- Khalga dies in 1-2 days after spawn.
+
+### Fixed
+- Vee spawning with old age on death trigger
+
+### Removed 
+- Portrat modifier for Vee
+- Webpack and Webpack cli packages
 
 ## [0.0.3] - 2020-10-29
 ### Added

@@ -172,11 +172,10 @@ ACS.0005 = {
 			}
 			set_relation_lover = scope:khalga
 		}
-		# Khalga dies
 		scope:khalga = {
 			trigger_event = {
 				id = ACS.0006
-				days = { 180 200 }
+				days = { 1 2 }
 			}
 		}
 	}
@@ -200,8 +199,12 @@ ACS.0007 = {
 	type = empty
 	hidden = yes
 
+	trigger = {
+		age = 53
+	}
+
 	immediate = {
-		debug_log = "Vee has 53 years. Trigger degradation	"
+		debug_log = "Vee has 53 years. Trigger degradation"
 		trigger_event = {
 			id = ACS.0008
 			days = { 50 500 }
@@ -223,7 +226,7 @@ ACS.0008 = {
 	}
 }
 
-# Remove global variable if Vee is dead
+# Choose a random ruler if Vee is dead
 ACS.0009 = {
 	type = empty
 	hidden = yes
@@ -249,7 +252,7 @@ ACS.0010 = {
 			create_character = {
 				location = root.capital_province
 				name = "Vee"
-				age = 51
+				age = 0
 				culture = root.culture
 				faith = root.faith
 				dynasty = none
@@ -258,9 +261,7 @@ ACS.0010 = {
 
 				trait = brave
 				trait = sharingan
-				trait = lustful
 				trait = ambitious
-				trait = fecund
 				trait = beauty_good_3
 				trait = intellect_good_3
 				trait = physique_good_3
@@ -272,10 +273,55 @@ ACS.0010 = {
 				trait = vee_blood
 			}
 			add_courtier = scope:vee
-			scope:vee = {
-				add_character_modifier = {
-					modifier = sharingan_promise
+		}
+	}
+}
+
+# Vee pregnancy every year - 50% prob
+ACS.0011 = {
+	type = empty
+	hidden = yes
+
+	trigger = {
+		has_trait = syrena
+		is_pregnant = no
+		is_adult = yes
+	}
+
+	immediate = {
+		random_list = {
+			1 = {}
+			99 = {
+				random_ruler = {
+					limit = {
+						is_ai = yes
+						any_knight = {
+							count > 1
+						}
+					}
+					save_scope_as = target_ruler
+					random_knight = {
+						save_scope_as = the_offering
+					}
 				}
+				make_pregnant = {
+					father = scope:the_offering
+				}	
+				scope:the_offering = {
+					death = {
+						death_reason = death_hunting_accident
+					}
+				}
+
+				if = {
+					limit = {
+						NOT = { exists = liege }				
+					}
+					debug_log = "VEE IS ADVENTURER. SHE NEEDS A LIEGE"
+					scope:target_ruler = {
+						add_courtier = root
+					}
+				}	
 			}
 		}
 	}
